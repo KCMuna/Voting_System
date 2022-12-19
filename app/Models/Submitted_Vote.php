@@ -2,22 +2,20 @@
 
 namespace App\Models;
 
-use App\Models\User;
+use App\Models\Poll;
 use App\Models\Option;
+use Carbon\Traits\Timestamp;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Submitted_Vote extends Model
 {
     use HasFactory;
-    public function User() {
-
-    return $this->belongsTo(User::class);
-}
-public function Option() {
-
-    return $this->hasMany(Option::class);
-}
-
-
+    use Timestamp;
+    public function Poll() {
+        return $this->belongsTo(Poll::class);
+    }
+    public function Option() {
+        return $this->belongsTo(Option::class);
+    }
 }

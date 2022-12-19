@@ -10,15 +10,15 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     
-                    <form action="#" method="POST">
+                <form action="{{ route('vote_store') }}" method="POST">
                         @csrf
                     <label for="votes" class="sr-only">Choose a Poll</label>
 
-                    <select id="votes">
-                        <option selected>Choose a Poll</option>
+                    <select id="votes" name="poll_title">
+                        <option selected disabled>Choose a Poll</option>
                        
                     @foreach ($polldata as $data )
-                        <option name="poll">{{ $data->poll_title }}</option>
+                        <option value="{{ $data->poll_title }}">{{ $data->poll_title }}</option>
                     @endforeach
                     </select>
 

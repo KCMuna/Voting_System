@@ -29,8 +29,9 @@ Route::get('/poll', function () {
     return view('poll');
 })->middleware(['auth'])->name('poll');
 
-// Route::post('poll', [UserController::class, 'store'])->middleware(['auth'])->name('store');
+Route::post('poll', [UserController::class, 'vote_store'])->middleware(['auth'])->name('vote_store');
 Route::get('poll',[UserController::class,'show_poll'])->middleware(['auth'])->name('poll');
+
 
 
 require __DIR__.'/auth.php';
