@@ -74,5 +74,13 @@ class UserController extends Controller
         return view('poll', compact('polldata'));
     
     }
-
+    public function show_option(){
+        // $optiondata = DB::table('options')
+        $optiondata=DB::table('options')->select('option_name')->where('poll_title','=','Local Election')->get();
+       
+       
+        // $optiondata = DB::table('options')->orderBy('id', 'desc')->get();
+        return view('poll', compact('optiondata'));
+    
+    }
 }

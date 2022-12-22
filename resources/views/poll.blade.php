@@ -23,7 +23,23 @@
                     @endforeach
                     </select>
 
+                    {{-- <p>Please select Your Choice:</p> --}}
+                   
+                    {{-- @foreach ($optiondata as $odata)
+                
+                        <label for="option3" name="oname" value="{{ $odata->option_name }}"></label><br><br> 
+                        <input type="radio" name="option_name" value="{{ $odata->option_name }}">
+
+                    @endforeach  --}}
+                    {{-- <label for="option1">{{ $odata->option_name }}</label><br> --}}
+                    {{-- <input type="radio" name="option_name" value="2">
+                    <label for="option2">Option 2</label><br>  
+                    
+                    <input type="radio" name="option_name" value="3">
+                    <label for="option3">Option 3</label><br><br> --}}
+
                     <p>Please select Your Choice:</p>
+
                     <input type="radio" name="option_name" value="1">
                     <label for="option1">Option 1</label><br>
                     <input type="radio" name="option_name" value="2">

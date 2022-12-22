@@ -128,7 +128,18 @@ public function counter()
         $optionCount=Option::count();
         $pollCount=Poll::count();
         $submittedCount = Submitted_Vote::count();
-        return view('admin.dashboard',compact('optionCount','pollCount','submittedCount'));
+        $localCount1 = DB::table('submitted__votes')->where('option_name', '=',1)->count();
+        $localCount2 = DB::table('submitted__votes')->where('option_name', '=',2)->count();
+        $localCount3 = DB::table('submitted__votes')->where('option_name', '=',3)->count();
+
+// ->where('poll_title','=','Local Election')->orWhere('poll_title','=','Provincial Assembly Election')
+// ->where('poll_title','=','Local Election')->orWhere('poll_title','=','Provincial Assembly Election')
+// ->where('poll_title','=','Local Election')->orwhere('poll_title','=','Provincial Assembly Election')
+        
+        // $localelection = Submitted_Vote::count()->where('option_name', '=', 'Local Election');
+
+        return view('admin.dashboard',compact('optionCount','pollCount','submittedCount','localCount1','localCount2','localCount3'));
+    
       
     }
 

@@ -31,7 +31,7 @@ Route::get('/dashboard', function () {
 
 Route::post('poll/store', [UserController::class, 'vote_store'])->middleware(['auth'])->name('vote_store');
 Route::get('poll',[UserController::class,'show_poll'])->middleware(['auth'])->name('poll');
-
+// Route::get('showoption',[UserController::class,'show_option'])->middleware(['auth'])->name('showoption');
 
 require __DIR__.'/auth.php';
 
