@@ -12,6 +12,7 @@
                     
                 <form action="{{ route('vote_store') }}" method="POST">
                         @csrf
+                        <input type="hidden" name="criteria" value="{{Auth::user()->id}}">
                     <label for="votes" class="sr-only">Choose a Poll</label>
 
                     <select id="votes" name="poll_title">
@@ -23,13 +24,18 @@
                     </select>
 
                     <p>Please select Your Choice:</p>
-                    <input type="radio" name="option" value="1">
+                    <input type="radio" name="option_name" value="1">
                     <label for="option1">Option 1</label><br>
-                    <input type="radio" name="option" value="2">
+                    <input type="radio" name="option_name" value="2">
                     <label for="option2">Option 2</label><br>  
-                    <input type="radio" name="option" value="3">
+                    <input type="radio" name="option_name" value="3">
                     <label for="option3">Option 3</label><br><br>
-                    <button type="submit">Submit</a></button>
+                    
+                    @if (Auth::user()->status==0)
+                        <input onclick="return confirm('Thank You for Voting!')" type="submit" name="votebtn" value="Vote" id="votebtn"> 
+                    @else
+                        <button disabled type="button" name="votebtn" id="voted">Voted</button>
+                    @endif
                   </form>
                 </div>
             </div>

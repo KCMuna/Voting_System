@@ -10,4 +10,6 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+                // User::where('id', Auth::user()->id)->update([ 'voted' => 1 ]);
+
 }

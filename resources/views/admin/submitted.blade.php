@@ -17,19 +17,22 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <table style="width:75%">
                         <tr>
-                        <th>S.N</th>
+                    
+                        <th>User ID</th>
                         <th>User Name</th>
                         <th>Option Name</th> 
                         <th>Poll Name</th>
                         </tr>
-                        {{-- @foreach ($optiondata as $key=>$i )
+                        @foreach ($submitted as $key=>$i )
                         <tr>
-                        <td>{{ ++$key }}</td>
-                        <td>{{ $i->option_name }}</td>
+                       
+                        <td>{{ $i->id }}</td>
                         <td>{{ $i->name }}</td>
-                        
+                        <td>{{ $i->option_name }}</td>
+                        <td>{{ $i->poll_title }}</td>
+    
                         </tr>
-                        @endforeach  --}}
+                        @endforeach 
                     </table>
                 </div>
             </div>

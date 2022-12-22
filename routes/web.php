@@ -25,13 +25,12 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-Route::get('/poll', function () {
-    return view('poll');
-})->middleware(['auth'])->name('poll');
+// Route::get('/poll', function () {
+//     return view('poll');
+// })->middleware(['auth'])->name('poll');
 
-Route::post('poll', [UserController::class, 'vote_store'])->middleware(['auth'])->name('vote_store');
+Route::post('poll/store', [UserController::class, 'vote_store'])->middleware(['auth'])->name('vote_store');
 Route::get('poll',[UserController::class,'show_poll'])->middleware(['auth'])->name('poll');
-
 
 
 require __DIR__.'/auth.php';

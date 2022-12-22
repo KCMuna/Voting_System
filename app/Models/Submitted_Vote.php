@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Poll;
+use App\Models\User;
 use App\Models\Option;
 use Carbon\Traits\Timestamp;
 use Illuminate\Database\Eloquent\Model;
@@ -18,4 +19,11 @@ class Submitted_Vote extends Model
     public function Option() {
         return $this->belongsTo(Option::class);
     }
+    public function User() {
+        return $this->belongsTo(User::class);
+    }
 }
+
+
+
+

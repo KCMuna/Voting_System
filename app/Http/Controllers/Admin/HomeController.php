@@ -25,8 +25,9 @@ public function show_option(){
  return view('admin/poll',compact('data'));
 
  }
- public function show_submitted() { 
-    return view('admin/submitted');
+ public function show_submitted() {
+        $submitted = DB::table('submitted__votes')->orderBy('id', 'desc')->get();
+    return view('admin/submitted', compact('submitted'));
 }
 
    public function option_store(Request $request){
