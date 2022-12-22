@@ -48,9 +48,9 @@
                     <label for="option3">Option 3</label><br><br>
                     
                     @if (Auth::user()->status==0)
-                        <input onclick="return confirm('Thank You for Voting!')" type="submit" name="votebtn" value="Vote" id="votebtn"> 
+                        <input class="btn btn-primary" onclick="return confirm('Thank You for Voting!')" type="submit" name="votebtn" value="Vote" id="votebtn"> 
                     @else
-                        <button disabled type="button" name="votebtn" id="voted">Voted</button>
+                        <button disabled class="btn btn-success" type="button" name="votebtn" id="voted">Voted</button>
                     @endif
                   </form>
                 </div>

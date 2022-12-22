@@ -15,7 +15,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <table style="width:75%">
+                    <table style="width:75%" class="table">
                         <tr>
                         <th>S.N</th>
                         <th>Poll Name</th> 
@@ -26,13 +26,13 @@
                         <td>{{ ++$key }}</td>
                         <td>{{ $i->poll_title }}</td>
                         <td>
-                            <a href="{{ route('admin.edit').'/'.$i->id }}">Edit</a>
-                            <a href="{{ route('admin.delete').'/'.$i->id }}">Delete</a>
+                            <a class="btn btn-primary" href="{{ route('admin.edit').'/'.$i->id }}">Edit</a>
+                            <a class="btn btn-danger" href="{{ route('admin.delete').'/'.$i->id }}">Delete</a>
                         </td>
                         </tr>
                         @endforeach
                     </table>
-                    <button><a href="{{ url('admin/form') }}">Add Data</a></button>
+                    <button class="btn btn-success"><a href="{{ url('admin/form') }}">Add Data</a></button>
                 </div>
             </div>
         </div>
