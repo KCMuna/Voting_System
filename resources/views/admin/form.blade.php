@@ -16,6 +16,8 @@
     @csrf
     <label for="fname">Poll Name:</label><br>
     <input type="text" id="name" name="name"><br>
+    <label for="date">End at:</label><br>
+    <input type="date" id="date" name="date"><br>
     
     <input type="submit" value="Submit">
   </form>

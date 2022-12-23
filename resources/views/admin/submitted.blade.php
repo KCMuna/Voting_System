@@ -19,17 +19,15 @@
                         <tr>
                     
                         <th>User ID</th>
-                        <th>User Name</th>
-                        <th>Option Name</th> 
-                        <th>Poll Name</th>
+                        <th>Option ID</th> 
+                        <th>Poll ID</th>
                         </tr>
                         @foreach ($submitted as $key=>$i )
                         <tr>
                        
                         <td>{{ $i->id }}</td>
-                        <td>{{ $i->name }}</td>
-                        <td>{{ $i->option_name }}</td>
-                        <td>{{ $i->poll_title }}</td>
+                        <td>{{ $i->option_id }}</td>
+                        <td>{{ $i->poll_id }}</td>
     
                         </tr>
                         @endforeach 

@@ -15,19 +15,18 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    
                     <table style="width:75%" class="table">
                         <tr>
                         <th>S.N</th>
                         <th>Option Name</th> 
-                        <th>Poll Name</th>
+                        <th>Poll ID</th>
                         <th>Action</th>
                         </tr>
                         @foreach ($optiondata as $key=>$i )
                         <tr>
                         <td>{{ ++$key }}</td>
                         <td>{{ $i->option_name }}</td>
-                        <td>{{ $i->poll_title }}</td>
+                        <td>{{ $i->poll_id }}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('admin.option_edit').'/'.$i->id }}">Edit</a>
                             <a class="btn btn-danger" href="{{ route('admin.option_delete').'/'.$i->id }}">Delete</a> 

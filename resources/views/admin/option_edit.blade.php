@@ -17,8 +17,8 @@
     <label for="fname">Option Name:</label><br>
     <input type="text" id="oname" name="oname" value="{{ $data->option_name  }}"><br>
   
-    <label for="fname">Poll Name:</label><br>
-    <input type="text" id="opname" name="opname" value="{{ $data->poll_title  }}"><br>
+    <label for="fname">Poll ID:</label><br>
+    <input type="text" id="pollid" name="pollid" value="{{ $data->poll_id  }}"><br>
     
     <input type="submit" value="Update">
   </form>

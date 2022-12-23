@@ -46,8 +46,6 @@
                                 <p style="color: darkslategray; margin-top:4px;"><b>Option Two:</b></p>
                                 <p style="color: black" class="text"><b>{{$localCount2}}</b></p>
                             
-                                <p style="color: darkslategray; margin-top:4px;"><b>Option Three:</b></p>
-                                <p style="color: black" class="text"><b>{{$localCount3}}</b></p>
                             </div>
                         </div>
                         

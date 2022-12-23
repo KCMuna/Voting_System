@@ -13,8 +13,8 @@ class Submitted_Vote extends Model
 {
     use HasFactory;
     use Timestamp;
-    public function Poll() {
-        return $this->belongsTo(Poll::class);
+    public function Polls() {
+        return $this->belongsToMany(Poll::class);
     }
     public function Option() {
         return $this->belongsTo(Option::class);

@@ -43,13 +43,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function Submitted_Vote() {
+    // public function Submitted_Vote() {
 
-        return $this->belongsTo(Submitted_Vote::class);
-    }
+    //     return $this->belongsTo(Submitted_Vote::class);
+    // }
     public function Option() {
 
         return $this->belongsTo(Option::class);
+    }
+    public function votedPolls(){
+        return $this->belongsToMany(Poll::class, 'submitted__votes', 'user_id', 'poll_id')->withPivot('option_id');
     }
 }
 

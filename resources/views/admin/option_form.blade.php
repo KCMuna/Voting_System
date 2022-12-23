@@ -15,9 +15,10 @@
     @csrf
     <label for="fname">Option Name:</label><br>
     <input type="text" id="oname" name="oname"><br>
+
+    <label for="fname">Poll ID:</label><br>
+    <input type="text" id="pollid" name="pollid"><br>
   
-    <label for="fname">Poll Name:</label><br>
-    <input type="text" id="opname" name="opname"><br>
     
     <input type="submit" value="Submit">
   </form>

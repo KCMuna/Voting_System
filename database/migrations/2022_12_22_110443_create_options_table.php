@@ -16,7 +16,7 @@ class CreateOptionsTable extends Migration
         Schema::create('options', function (Blueprint $table) {
             $table->id();
             $table->string('option_name');
-            $table->string('poll_title');
+            $table->foreignId('poll_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

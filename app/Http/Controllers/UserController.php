@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Poll;
 use App\Models\User;
 use App\Models\Option;
-use App\Models\Submitted_Vote;
 use Illuminate\Http\Request;
+use App\Models\Submitted_Vote;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,38 +50,55 @@ class UserController extends Controller
     // }
 
     public function vote_store(Request $request)
-    {        
-        $validatedData = $request->validate([
-            'criteria'=>'required',
-            'poll_title'=>'required',
-            'option_name'=>'required'
-        ]);
+    {
+        // dd($request->option_name);
+        // $validatedData = $request->validate([
+        //     'criteria'=>'required',
+        //     'pollid'=>'required',
+        //     'option_id'=>'required'
+        // ]);
 
 
-        $submit = new Submitted_Vote;
-        $submit->user_id=Auth::user()->id;
-        $submit->name=Auth::user()->name;
-        $submit->poll_title = $request->poll_title;
-        $submit->option_name = $request->option_name;
-        DB::table('users')->where('status', '=', '0')->update(['status'=>1
-        ]);
-        
-        $submit->save();
-        return redirect()->route('poll')->with('status', 'Voted successfully');
+        // $submit = new Submitted_Vote;
+        // $submit->user_id=Auth::user()->id;
+        // $submit->option_id = $request->option_id;
+        // $submit->poll_id = $request->poll_id;
+        // DB::table('users')->where('status', '=', '0')->update(['status'=>1
+        // ]);
+        // $submit->save();
+
+        // return redirect()->route('showpoll')->with('status', 'Voted successfully');
+
+        $poll_id = $request->poll_id;
+        $option_id = $request->option_id;
+
+        $user = Auth::user();
+        $votedPoll = $user->votedPolls()->where(['poll_id'=>$poll_id])->count();
+        if($votedPoll == 0){
+            $user->votedPolls()->attach($poll_id,['option_id'=>$option_id]);
+        }
+        else{
+            return view('dashboard');
+        }
+        return view('dashboard')->with('sucess','voted sucessfully');
 
     }
     public function show_poll(){
-        $polldata = DB::table('polls')->orderBy('id', 'desc')->get();
+        $polldata=Poll::whereDate('end_at', '>=', Carbon::today()->toDateString())->latest()->get();
+
+        // $polldata = DB::table('polls')->orderBy('id', 'desc')->where()->get();
+       
         return view('poll', compact('polldata'));
     
     }
-    public function show_option(){
-        // $optiondata = DB::table('options')
-        $optiondata=DB::table('options')->select('option_name')->where('poll_title','=','Local Election')->get();
+
+    public function spoll($id)
+    {
+      
+        $poll = Poll::find($id);
        
-       
-        // $optiondata = DB::table('options')->orderBy('id', 'desc')->get();
-        return view('poll', compact('optiondata'));
-    
+        return view('showpoll')->with('poll',$poll);
     }
+
+   
 }

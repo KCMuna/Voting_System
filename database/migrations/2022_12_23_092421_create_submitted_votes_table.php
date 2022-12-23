@@ -14,12 +14,11 @@ class CreateSubmittedVotesTable extends Migration
     public function up()
     {
         Schema::create('submitted__votes', function (Blueprint $table) {
-          $table->id();
-        $table->unsignedBigInteger('user_id');
-        $table->string('name');
-        $table->string('option_name');
-        $table->string('poll_title');
-        $table->timestamps();
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('option_id');
+            $table->foreignId('poll_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +29,6 @@ class CreateSubmittedVotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('submitted__votes');
+        Schema::dropIfExists('submitted_votes');
     }
 }

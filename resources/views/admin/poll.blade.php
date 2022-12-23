@@ -19,12 +19,14 @@
                         <tr>
                         <th>S.N</th>
                         <th>Poll Name</th> 
+                        <th>End At</th>
                         <th>Action</th>
                         </tr>
                         @foreach ($data as $key=> $i )
                         <tr>
                         <td>{{ ++$key }}</td>
                         <td>{{ $i->poll_title }}</td>
+                        <td>{{ $i->end_at }}</td>
                         <td>
                             <a class="btn btn-primary" href="{{ route('admin.edit').'/'.$i->id }}">Edit</a>
                             <a class="btn btn-danger" href="{{ route('admin.delete').'/'.$i->id }}">Delete</a>
