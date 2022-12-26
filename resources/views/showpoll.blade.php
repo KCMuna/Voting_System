@@ -12,15 +12,14 @@
                 <h1>{{ $poll->poll_title }}</h1>
                 <form action="{{ route('vote_store') }}" method="POST">
                         @csrf
-                        {{-- <input type="hidden" name="criteria" value="{{Auth::user()->id}}"> --}}
                         <input type="hidden" name="poll_id" value="{{ $poll->id  }}">
                  
                     <p>Please select Your Choice:</p>
                     @php($votedPoll = Auth::user()->votedPolls()->where(['poll_id'=>$poll->id])->count())
                 
                     @foreach ($poll->options as $option)
+                    <input type="radio" name="option_id" value="{{ $option->id }}">
                     <label for="option1">{{ $option->option_name }}</label><br>
-                    <input type="radio" name="option_id" value="{{ $option->id }}"><br>
                     @endforeach
                     
                     @if($votedPoll == 0)
