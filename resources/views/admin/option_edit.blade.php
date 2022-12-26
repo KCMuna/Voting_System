@@ -20,7 +20,7 @@
     <label for="fname">Poll ID:</label><br>
     <input type="text" id="pollid" name="pollid" value="{{ $data->poll_id  }}"><br>
     
-    <input type="submit" value="Update">
+    <button class="btn btn-primary">Update</button>
   </form>
   
 </x-admin-layout>

@@ -19,8 +19,7 @@
     <label for="fname">Poll ID:</label><br>
     <input type="text" id="pollid" name="pollid"><br>
   
-    
-    <input type="submit" value="Submit">
+    <button class="btn btn-primary">Submit</button>
   </form>
   
 </x-admin-layout>

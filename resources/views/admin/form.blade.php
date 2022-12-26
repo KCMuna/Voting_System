@@ -11,15 +11,15 @@
           {{ __('Add Poll Information') }}
       </h2>
   </x-slot>
-  <form method="post" action="{{ route('admin.store') }}" style="margin-left: 10%">
+  <form method="post" action="{{ route('admin.store') }}" style="margin-left: 10%" class="form-group">
     {{-- <form> --}}
     @csrf
     <label for="fname">Poll Name:</label><br>
-    <input type="text" id="name" name="name"><br>
+    <input  type="text" id="name" name="name"><br>
     <label for="date">End at:</label><br>
-    <input type="date" id="date" name="date"><br>
+    <input  type="date" id="date" name="date"><br>
     
-    <input type="submit" value="Submit">
+    <button class="btn btn-primary">Submit</button>
   </form>
 </x-admin-layout>
 

@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                          
-                    <a href="poll" class="btn btn-primary">Click Here to Cast Vote >></a>
+                    <a href="poll" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Click Here to Cast Vote >></a>
                 </div>
                 
         </div>

@@ -33,6 +33,8 @@ Route::post('poll/store', [UserController::class, 'vote_store'])->middleware(['a
 Route::get('poll',[UserController::class,'show_poll'])->middleware(['auth'])->name('poll');
 // Route::get('showoption',[UserController::class,'show_option'])->middleware(['auth'])->name('showoption');
 Route::get('showpoll/{id}',[UserController::class,'spoll'])->middleware(['auth'])->name('showpoll');
+Route::get('my-profile',[UserController::class,'profile'])->middleware(['auth'])->name('profile');
+Route::post('my-profile-update',[UserController::class,'updateprofile'])->middleware(['auth'])->name('updateprofile');
 
 
 

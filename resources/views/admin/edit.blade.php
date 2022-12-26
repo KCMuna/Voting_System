@@ -17,7 +17,10 @@
   <label for="fname">Poll Name:</label><br>
   <input type="text" id="name" name="name" value="{{ $data->poll_title }}"><br>
  
-  <input type="submit" value="Update">
+  <label for="date">End at:</label><br>
+  <input type="date" id="date" name="date" value="{{ $data->end_at }}"><br>
+  
+  <button class="btn btn-primary">Update</button>
 </form>
 </x-admin-layout>
 

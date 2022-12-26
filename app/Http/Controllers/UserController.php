@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Submitted_Vote;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -80,7 +81,7 @@ class UserController extends Controller
         else{
             return view('dashboard');
         }
-        return view('dashboard')->with('sucess','voted sucessfully');
+        return redirect()->back()->with('sucess','voted sucessfully');
 
     }
     public function show_poll(){
@@ -100,5 +101,33 @@ class UserController extends Controller
         return view('showpoll')->with('poll',$poll);
     }
 
-   
+    public function profile(){
+        return view('myprofile');
+    }
+   public function updateprofile(Request $request){
+        $validateData = $request->validate([
+            'oldpassword'=>'required',
+             'password'=>'required|confirmed'
+            //  'password_confirmation'=>'required'
+        ]);
+// if($request->npassword == $request->cpassword){
+
+
+        $hashedPassword = Auth::user()->password;
+      
+        if(Hash::check($request->oldpassword,$hashedPassword)){
+            $user = User::find(Auth::id());
+            $user->password = Hash::make($request->password); 
+            $user->save();
+
+            Auth::logout();
+            return redirect()->route('login')->with('success', 'Password Is Changed Successfully');
+        }else{
+            return redirect()->back()->with('error', 'Current Password Is Invalid');
+
+        }
+    // }else{
+    //         return redirect()->back()->with('error', 'password didn/t match');
+    // }
+   }
 }

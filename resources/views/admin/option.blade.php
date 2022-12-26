@@ -1,11 +1,6 @@
 <x-admin-layout>
     <x-slot name="header">
-        <style>
-            table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
-        </style>
+    
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Option Candidates') }}
         </h2>
@@ -15,7 +10,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <table style="width:75%" class="table">
+                    <table class="table table-striped">
                         <tr>
                         <th>S.N</th>
                         <th>Option Name</th> 

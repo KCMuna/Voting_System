@@ -56,6 +56,7 @@
                             </x-dropdown-link>
                         </form>
                     </x-slot>
+                   
                 </x-dropdown>
             </div>
 
@@ -77,7 +78,16 @@
             <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                 {{ __('Admin Dashboard') }}
             </x-responsive-nav-link>
-            
+            <x-responsive-nav-link :href="route('admin.poll')" :active="request()->routeIs('admin.poll')">
+                {{ __('Poll') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.option')" :active="request()->routeIs('admin.option')">
+                {{ __('Option') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.submitted')" :active="request()->routeIs('admin.submitted')">
+                {{ __('Submitted Vote') }}
+            </x-responsive-nav-link>
+          
         </div>
 
         <!-- Responsive Settings Options -->
@@ -98,6 +108,7 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
+           
             </div>
         </div>
     </div>

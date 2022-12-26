@@ -1,4 +1,5 @@
 <x-app-layout>
+    
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Poll') }}
@@ -10,12 +11,15 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     
-                    <label for="votes" class="sr-only"><b>Choose a Poll:</b></label><br>
-
+                    {{-- <label for="votes" class="sr-only" style="font-family:sans-serif; font-size:20px;"><b></b></label><br> --}}
+                    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                        Choose a Poll:
+                    </h2>
                        
                     @foreach ($polldata as $data )
                     
-                        <a href="{{ route('showpoll',$data->id) }}">{{ $data->poll_title }}</a><br>
+                    <hr><a href="{{ route('showpoll',$data->id) }}" class="btn btn-light">{{ $data->poll_title }}</a><hr>
+                        
                     @endforeach
                    
 

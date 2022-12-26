@@ -115,10 +115,12 @@ public function store(Request $request){
      if($request->isMethod('post')){
      $this->validate($request,[
          'name'=>'required',
+         'date'=>'required'
          
      ]);
      DB::table('polls')->where('id','=',$request->criteria)->update([
          'poll_title'=>$request->name,
+         'end_at'=>$request->date
      ]);
      return redirect()->route('admin.poll')->with('success','upadted successfully');
  }
@@ -132,14 +134,15 @@ public function counter()
         $submittedCount = Submitted_Vote::count();
         $localCount1 = DB::table('submitted__votes')->where('option_id', '=',1)->count();
         $localCount2 = DB::table('submitted__votes')->where('option_id', '=',2)->count();
-
+        $localCount3 = DB::table('submitted__votes')->where('option_id', '=',3)->count();
+        $localCount4 = DB::table('submitted__votes')->where('option_id', '=',4)->count();
 // ->where('poll_title','=','Local Election')->orWhere('poll_title','=','Provincial Assembly Election')
 // ->where('poll_title','=','Local Election')->orWhere('poll_title','=','Provincial Assembly Election')
 // ->where('poll_title','=','Local Election')->orwhere('poll_title','=','Provincial Assembly Election')
         
         // $localelection = Submitted_Vote::count()->where('option_name', '=', 'Local Election');
 
-        return view('admin.dashboard',compact('optionCount','pollCount','submittedCount','localCount1','localCount2'));
+        return view('admin.dashboard',compact('optionCount','pollCount','submittedCount','localCount1','localCount2','localCount3','localCount4'));
     
       
     }

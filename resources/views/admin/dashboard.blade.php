@@ -40,11 +40,13 @@
                         <div class="col-sm-2 card"style="background-color: burlywood">
                             <div class="card-body">
                                 <h5 class="title" style="font-size:20px; color:darkgreen"><b>Total Number of Votes</b></h5>
-                                <p style="color:darkslategray; margin-top:10px;"><b>Option One:</b></p>
-                                <p style="color: black" class="text"><b>{{$localCount1}}</b></p>
-                          
-                                <p style="color: darkslategray; margin-top:4px;"><b>Option Two:</b></p>
-                                <p style="color: black" class="text"><b>{{$localCount2}}</b></p>
+                                <p><b>Provincial Assembly</b></p>
+                                <p style="color:darkslategray; margin-top:10px;">Option One: <b>{{$localCount2}}</b></p>
+                                <p style="color: darkslategray; margin-top:4px;">Option Three: <b>{{$localCount3}}</b></p>
+
+                                <p><b>Local Election</b></p>
+                                <p style="color: darkslategray; margin-top:4px;">Option Four: <b>{{$localCount1}}</b></p>
+                                <p style="color: darkslategray; margin-top:4px;">Option Five: <b>{{$localCount4}}</b></p>
                             
                             </div>
                         </div>
