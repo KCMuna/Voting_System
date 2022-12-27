@@ -12,14 +12,14 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <table class="table table-striped">
                         <tr>
-                        <th>S.N</th>
+                        <th>Option ID</th>
                         <th>Option Name</th> 
                         <th>Poll ID</th>
                         <th>Action</th>
                         </tr>
                         @foreach ($optiondata as $key=>$i )
                         <tr>
-                        <td>{{ ++$key }}</td>
+                        <td>{{ $i->id}}</td>
                         <td>{{ $i->option_name }}</td>
                         <td>{{ $i->poll_id }}</td>
                         <td>

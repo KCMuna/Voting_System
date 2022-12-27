@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   
   <link rel="stylesheet" href="{{url('bootstrap/css/style.css')}}"><!--external css linked-->
@@ -10,7 +9,8 @@
         </h2>
     </x-slot>
     
-    <div class="py-12">
+    <div class="py-12" style="  background-image: url('https://i.stack.imgur.com/RLQNm.jpg');
+">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8" style="height:70%; overflow:hidden">
                     <div class="col-sm-12 products" style="display:flex;height:65%; margin-top:60px; width:90%;">  
                         <div class="col-sm-2 card">
@@ -32,24 +32,12 @@
                         <div class="col-sm-2 card">
                             <img src="/images/image.jpg" class="card-img-top"  alt="option">
                             <div class="card-body">
-                                <h5 class="card-title">Total Number of Submitted Votes</h5>
+                                <h5 class="card-title">Total Submitted Votes</h5>
                                 <p class="card-text">{{$submittedCount}}</p><br>
                                 <a href="submitted" class="btn btn-primary">Know More</a>
                             </div>
                         </div>
-                        <div class="col-sm-2 card"style="background-color: burlywood">
-                            <div class="card-body">
-                                <h5 class="title" style="font-size:20px; color:darkgreen"><b>Total Number of Votes</b></h5>
-                                <p><b>Provincial Assembly</b></p>
-                                <p style="color:darkslategray; margin-top:10px;">Option One: <b>{{$localCount2}}</b></p>
-                                <p style="color: darkslategray; margin-top:4px;">Option Three: <b>{{$localCount3}}</b></p>
-
-                                <p><b>Local Election</b></p>
-                                <p style="color: darkslategray; margin-top:4px;">Option Four: <b>{{$localCount1}}</b></p>
-                                <p style="color: darkslategray; margin-top:4px;">Option Five: <b>{{$localCount4}}</b></p>
-                            
-                            </div>
-                        </div>
+                
                         
                     </div>
            

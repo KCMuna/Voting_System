@@ -17,7 +17,8 @@ class CreatePollsTable extends Migration
             $table->id();
             $table->string('poll_title');
             $table->date('end_at');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

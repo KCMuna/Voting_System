@@ -11,22 +11,26 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-public function show_(){
-    return view('admin/dashboard');
+public function show_dashboard(){
+    $optionCount=Option::count();
+        $pollCount=Poll::count();
+        $submittedCount = Submitted_Vote::count();
+
+        return view('admin/dashboard',compact('optionCount','pollCount','submittedCount'));
 
 }
 public function show_option(){
-    $optiondata = DB::table('options')->orderBy('id', 'desc')->get();
+    $optiondata = DB::table('options')->orderBy('id', 'asc')->get();
     return view('admin/option', compact('optiondata'));
 
 }
  public function show(){
-     $data=DB::table('polls')->orderBy('id','desc')->get();
+     $data=DB::table('polls')->orderBy('id','asc')->get();
  return view('admin/poll',compact('data'));
 
  }
  public function show_submitted() {
-        $submitted = DB::table('submitted__votes')->orderBy('id', 'desc')->get();
+        $submitted = DB::table('submitted__votes')->orderBy('id', 'asc')->get();
     return view('admin/submitted', compact('submitted'));
 }
 
@@ -122,7 +126,7 @@ public function store(Request $request){
          'poll_title'=>$request->name,
          'end_at'=>$request->date
      ]);
-     return redirect()->route('admin.poll')->with('success','upadted successfully');
+     return redirect()->route('admin.poll')->with('success','updated successfully');
  }
 
    }
@@ -132,19 +136,42 @@ public function counter()
         $optionCount=Option::count();
         $pollCount=Poll::count();
         $submittedCount = Submitted_Vote::count();
-        $localCount1 = DB::table('submitted__votes')->where('option_id', '=',1)->count();
-        $localCount2 = DB::table('submitted__votes')->where('option_id', '=',2)->count();
-        $localCount3 = DB::table('submitted__votes')->where('option_id', '=',3)->count();
-        $localCount4 = DB::table('submitted__votes')->where('option_id', '=',4)->count();
+        $KP = DB::table('submitted__votes')->where('option_id', '=',6)->count();
+        $prachanda = DB::table('submitted__votes')->where('option_id', '=',7)->count();
+        $balen = DB::table('submitted__votes')->where('option_id', '=',8)->count();
+        $harka = DB::table('submitted__votes')->where('option_id', '=',9)->count();
 // ->where('poll_title','=','Local Election')->orWhere('poll_title','=','Provincial Assembly Election')
 // ->where('poll_title','=','Local Election')->orWhere('poll_title','=','Provincial Assembly Election')
 // ->where('poll_title','=','Local Election')->orwhere('poll_title','=','Provincial Assembly Election')
         
         // $localelection = Submitted_Vote::count()->where('option_name', '=', 'Local Election');
 
-        return view('admin.dashboard',compact('optionCount','pollCount','submittedCount','localCount1','localCount2','localCount3','localCount4'));
+        return view('admin.dashboard',compact('optionCount','pollCount','submittedCount','KP','prachanda','balen','harka'));
     
       
     }
 
+    public function viewStats(Poll $Poll){
+        $options = $Poll->Options;
+        $votedUsers = $Poll->votedUsers;
+        // dd($options);
+        $var = array();
+        $label = array();
+        foreach($options as $option)
+        {
+            $count = 0;
+            $id = $option->id;
+            
+            foreach($votedUsers as $vote)
+            {
+                if($id == $vote->pivot->option_id) {
+                    $count ++;
+                };
+            }
+            $label[] = $option->option_name;
+            $var[] = $count;
+        }
+        return view('admin.chart')->with('var',$var)->with('label',$label)->with('totalVotes',$votedUsers->count());
+
+    }
 }

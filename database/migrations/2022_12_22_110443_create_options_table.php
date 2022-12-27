@@ -17,8 +17,8 @@ class CreateOptionsTable extends Migration
             $table->id();
             $table->string('option_name');
             $table->foreignId('poll_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
-        });
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();        });
     }
 
     /**

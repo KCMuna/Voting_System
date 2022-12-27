@@ -18,8 +18,8 @@ class CreateSubmittedVotesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('option_id');
             $table->foreignId('poll_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
-        });
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();        });
     }
 
     /**
